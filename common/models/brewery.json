@@ -1,0 +1,33 @@
+{
+  "name": "Brewery",
+  "base": "PersistedModel",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "twitter_handle": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "beers": {
+      "type": "hasMany",
+      "model": "Beer",
+      "foreignKey": "brewery_id"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,50 @@
+<h1>{{title}}</h1>
+<p>
+	Welcome to BrazosKeezer, beep boop.
+{{> twitter}}
+
+<div class="row-fluid">
+	<div class="span6">
+		Beer
+	</div>
+	<div class="span2">
+		Style
+	</div>
+	<div class="span1">
+		<acronym title="Alcohol By Volume">ABV</acronym>
+	</div>
+	<div class="span1">
+		<acronym title="International Bittering Units">IBU</acronym>
+	</div>
+</div>
+
+{{#each beer}}
+	<div class="row-fluid">
+		<div class="span12">
+			{{> pintGlass}}
+			<strong>
+				{{name}}
+				({{brewer}})
+			</strong>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6"></div>
+		<div class="span2">
+			{{style}}
+		</div>
+		<div class="span1">
+			{{#if abv}}
+				{{abv}}%
+			{{/if}}
+		</div>
+		<div class="span1">
+			<div>
+				{{ibu}}
+			</div>
+			<meter max="100" min="0" value="{{ibu}}">
+				{{ibu}}
+			</meter>
+		</div>
+	</div>
+{{/each}}

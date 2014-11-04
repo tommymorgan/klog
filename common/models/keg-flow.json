@@ -1,0 +1,32 @@
+{
+  "name": "KegFlow",
+  "base": "PersistedModel",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "keg_id": {
+      "type": "number",
+      "required": true
+    },
+    "ml": {
+      "type": "number",
+      "required": true
+    },
+    "timestamp": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "keg": {
+      "type": "belongsTo",
+      "model": "Keg",
+      "foreignKey": "keg_id"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

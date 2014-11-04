@@ -1,0 +1,48 @@
+{
+  "name": "Keg",
+  "base": "PersistedModel",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "beer_id": {
+      "type": "number",
+      "required": true
+    },
+    "tapped": {
+      "type": "date",
+      "required": true
+    },
+    "floated": {
+      "type": "date"
+    },
+    "start_ml": {
+      "type": "number",
+      "required": true
+    },
+    "current_ml": {
+      "type": "number",
+      "required": true
+    },
+    "tap": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "beer": {
+      "type": "belongsTo",
+      "model": "Beer",
+      "foreignKey": "beer_id"
+    },
+    "keg_flows": {
+      "type": "hasMany",
+      "model": "KegFlow",
+      "foreignKey": "keg_id"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

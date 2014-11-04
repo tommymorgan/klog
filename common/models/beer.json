@@ -1,0 +1,55 @@
+{
+  "name": "Beer",
+  "base": "PersistedModel",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "brewery_id": {
+      "type": "number",
+      "required": true
+    },
+    "abv": {
+      "type": "number",
+      "required": true
+    },
+    "srm": {
+      "type": "number",
+      "required": true
+    },
+    "ibu": {
+      "type": "number",
+      "required": true
+    },
+    "bjcp_style_category": {
+      "type": "number",
+      "required": true
+    },
+    "bjcp_style_subcategory": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "breweries": {
+      "type": "belongsTo",
+      "model": "Brewery",
+      "foreignKey": "brewery_id"
+    },
+    "kegs": {
+      "type": "hasMany",
+      "model": "Keg",
+      "foreignKey": "beer_id"
+    }
+  },
+  "acls": [],
+  "methods": []
+}
