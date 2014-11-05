@@ -16,12 +16,6 @@ body {
     margin: 0 10%;
 }
 
-/*  TODO: Remove this class*/
-.beer-field .type1 {
-    background-color:  #a75b36;
-    border-color:  #a75b36;
-}
-
 .beer-field {
     box-sizing: border-box;
     display: inline-table;
