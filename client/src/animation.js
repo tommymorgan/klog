@@ -1,4 +1,4 @@
-$(document).ready(function() {
+setTimeout(function() {
     $('.pour') //Pour Me Another Drink, Bartender!
         .delay(2000)
         .animate({
@@ -18,4 +18,4 @@ $(document).ready(function() {
         .animate({
             bottom: '170px'
         }, 2500);
-});
+}, 2000);
