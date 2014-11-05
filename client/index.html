@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app="keezerApp">
 	<head>
-		<title>On Tap</title>
-		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
-		<link rel="stylesheet" href="/stylesheets/main.css">
-		<link rel="stylesheet" href="/stylesheets/srm.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+		<script src="src/angular-resource.js"></script>
+		<script src="src/keezerApp.js"></script>
+		<script src="src/lbServices.js"></script>
+		<script src="src/controller.js"></script>
 	</head>
-	<body>
-    <div id="content"></div>
-    <!-- temp, minimal, and opinionless js just to get the views rendering -->
-    <script src="dummy-data.js"></script>
-    <script src="libs/jquery-2.1.1.js"></script>
-    <script src="libs/handlebars-v2.0.0.js"></script>
-    <script src="src/app.js"></script>
-    <!-- end temp, opinionless js just to get the views rendering -->
-	</body>
+<body ng-controller="BeerListCtrl">
+  <ul>
+    <li ng-repeat="keg in kegs">
+      <div>Tap: {{keg.tap}}</div>
+      <div><label>beer name</label>{{keg.beer.name}}</div>
+      <div>description<p>{{keg.beer.description}}</p></div>
+      <div><label>srm</label>{{keg.beer.srm}}</div>
+      <div><label>ibu</label>{{keg.beer.ubv}}</div>
+      <div><label>abv</label>{{keg.beer.abv}}</div>
+      <div>Current ml: {{keg.current_ml}}</div>
+      
+    </li>
+  </ul>
+  
+</body>
 </html>
