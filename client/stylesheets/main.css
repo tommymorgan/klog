@@ -2,6 +2,8 @@ body {
   background-color: #0e83cd;
   margin: 0;
   font-family: 'Cabin Sketch', cursive;
+  color: black;
+  background-image: url(../img/brushed_alu_dark.png);
 }
 
 .beaker {
@@ -27,7 +29,8 @@ body {
     position: relative;
     height: 490px;
     top: -20px;
-    width: 20%;
+    width: calc(100%/6);
+    min-width: 200px;
     max-width: 200px;
 }
 
@@ -35,15 +38,14 @@ body {
     position: absolute;
     bottom: 0;
     margin: 0 10%;
-    color: white;
 }
 
 .beerSection {
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-    height: 500px;
-    width: 1100px;
+    height: 100%;
+    width: 100%;
 }
 
 .liquid {
@@ -94,7 +96,6 @@ body {
 }
 
 .topHeader {
-    color: white;
     margin: 30px auto;
     position: fixed;
     font-size: 2em;
@@ -188,16 +189,9 @@ body {
 
 
 @media (max-width: 480px) {
-    .beer-field {
-        height: 320px;
-    }
+
 }
 
 @media (max-width: 1900px) and (min-width:1200px) {
-    .beerSection {
-        width: 1900px;
-    }
-    .beer-field {
-        /*width: 20%;*/
-    }
+
 }
