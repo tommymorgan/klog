@@ -5,7 +5,7 @@ body {
   margin: 0;
 }
 
-.beaker{
+.beaker {
     border: 10px solid #FFF;
     border-top: 0;
     border-radius: 0 0 30px 30px;
@@ -14,6 +14,12 @@ body {
     bottom: 155px;
     width: 80%;
     margin: 0 10%;
+}
+
+/*  TODO: Remove this class*/
+.beer-field .type1 {
+    background-color:  #a75b36;
+    border-color:  #a75b36;
 }
 
 .beer-field {
@@ -72,7 +78,7 @@ body {
     -webkit-animation-name: bubble;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 1);
     bottom: 0;
     border-radius: 10px;
     height: 10%;
