@@ -1,6 +1,6 @@
 var keezerControllers = angular.module("keezerControllers", ["lbServices"]);
 
-keezerControllers.controller("BeerListCtrl", ["$scope", "Beer", "Keg", function ($scope, Beer, Keg) {
+keezerControllers.controller("BeerListCtrl", ["$scope", "Keg", function ($scope, Keg) {
   Keg.find({
     filter: {
       include: 'beer'

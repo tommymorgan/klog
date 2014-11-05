@@ -1,8 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:700,900);
-
 body { 
   background-color: #0e83cd;
   margin: 0;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 .beaker {
