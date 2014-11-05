@@ -2,8 +2,10 @@
 <html ng-app="keezerApp">
 	<head>
     <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/srm.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>	
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="https://code.angularjs.org/1.2.26/angular-animate.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 		<script src="src/angular-resource.js"></script>
 		<script src="src/keezerApp.js"></script>
@@ -16,7 +18,7 @@
 <header class="topHeader">Today we have 6 types of beer for you</header>
     <div class="beerSection">
         <div class="beer-field" ng-repeat="keg in kegs">
-            <div class="pour type1"></div>
+            <div class="pour srm{{keg.beer.srm}}"></div>
             <div class="beaker">
                 <div class="beer-foam">
                     <div class="foam-1"></div>
@@ -25,7 +27,7 @@
                     <div class="foam-4"></div>
                     <div class="foam-5"></div>
                 </div>
-                <div class="liquid type1">
+                <div class="liquid srm{{keg.beer.srm}}">
                     <div class="foam"></div>
                     <div class="bubble bubble1"></div>
                     <div class="bubble bubble2"></div>
