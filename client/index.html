@@ -27,8 +27,10 @@
                     <div class="foam-3"></div>
                     <div class="foam-4"></div>
                     <div class="foam-5"></div>
+                    <div class="foam-6"></div>
+                    <div class="foam-7"></div>
                 </div>
-                <div class="liquid srm{{keg.beer.srm}}">
+                <div class="liquid srm{{keg.beer.srm}}" style="max-height:"{{keg.volume}}>
                     <div class="foam"></div>
                     <div class="bubble bubble1"></div>
                     <div class="bubble bubble2"></div>
@@ -42,11 +44,12 @@
                 <div>NAME: {{keg.beer.name}}</div>
                 <!--<div>Brewery: {{keg.beer.description}}</div>-->
                 <!--<div>Type: Pilsner</div>-->  <!-- e.g. style -->
-                <div>COLOR: {{keg.beer.srm}}</div>
-                <div>UBV: {{keg.beer.ubv}}</div>
+<!--                 <div>COLOR: {{keg.beer.srm}}</div> -->
+                <div>IBU: {{keg.beer.ubv}}</div>
                 <div>ABV: {{keg.beer.abv}}</div>
                 <div>Tap: {{keg.tap}}</div>
-                <div>Current ml: {{keg.current_ml}}</div>
+                <div>Current ML: {{keg.current_ml}}</div>
+                <div>Volume {{keg.volume}}%</div>
             </div>
         </div>
     </div>
