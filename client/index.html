@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app="keezerApp">
 	<head>
-		<title>On Tap</title>
-		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
-		<link rel="stylesheet" href="/stylesheets/main.css">
-		<link rel="stylesheet" href="/stylesheets/srm.css">
+    <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/srm.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="https://code.angularjs.org/1.2.26/angular-animate.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+		<script src="src/angular-resource.js"></script>
+		<script src="src/keezerApp.js"></script>
+		<script src="src/lbServices.js"></script>
+		<script src="src/controller.js"></script>
+    
+    
 	</head>
-	<body>
-    <div id="content"></div>
-    <!-- temp, minimal, and opinionless js just to get the views rendering -->
-    <script src="dummy-data.js"></script>
-    <script src="libs/jquery-2.1.1.js"></script>
-    <script src="libs/handlebars-v2.0.0.js"></script>
-    <script src="src/app.js"></script>
-    <!-- end temp, opinionless js just to get the views rendering -->
-	</body>
+<body>
+  <div ng-view></div>
+  <a href="https://twitter.com/BrazosKeezer" class="twitter-follow-button" data-show-count="false">Follow @BrazosKeezer</a>
+</body>
+  <script src="src/animation.js"></script>
+  
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </html>

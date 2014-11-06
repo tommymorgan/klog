@@ -1,7 +1,11 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-
+var _ = require('lodash');
 var app = module.exports = loopback();
+
+app.get('/endpointFoo', function(req, res) {
+  res.send(JSON.stringify({}));
+});
 
 // Set up the /favicon.ico
 app.use(loopback.favicon());

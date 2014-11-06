@@ -39,7 +39,7 @@
   },
   "validations": [],
   "relations": {
-    "breweries": {
+    "brewery": {
       "type": "belongsTo",
       "model": "Brewery",
       "foreignKey": "brewery_id"
