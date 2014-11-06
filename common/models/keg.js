@@ -21,16 +21,16 @@ module.exports = function(Keg) {
 	
 	Keg.remoteMethod('history', {
 		http: {
-      path: '/history',
-      verb: 'get'
-    },
-    accepts: {
-      arg: 'tap',
-      type: 'number',
-    },
-    returns: {
-      arg: 'data',
-      type: 'object',
-    },
+			path: '/history',
+			verb: 'get'
+		},
+	    accepts: {
+			arg: 'tap',
+			type: 'number',
+		},
+		returns: {
+			arg: 'data',
+			type: 'object',
+		},
 	});
 };

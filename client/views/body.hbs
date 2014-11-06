@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <p>
-	Welcome to BrazosKeezer, beep boop.
-{{> twitter}}
+	{{> twitter}}
+</p>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -18,13 +18,13 @@
 	</div>
 </div>
 
-{{#each beer}}
+{{#each keg}}
 	<div class="row-fluid">
 		<div class="span12">
 			{{> pintGlass}}
 			<strong>
 				{{name}}
-				({{brewer}})
+				({{brewery}})
 			</strong>
 		</div>
 	</div>
@@ -42,9 +42,6 @@
 			<div>
 				{{ibu}}
 			</div>
-			<meter max="100" min="0" value="{{ibu}}">
-				{{ibu}}
-			</meter>
 		</div>
 	</div>
 {{/each}}
