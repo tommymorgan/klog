@@ -1,3 +1,196 @@
-.pint-glass-liquid {
-	mix-blend-mode: multiply;
+body { 
+  margin: 0;
+  font-family: 'Cabin Sketch', cursive;
+  color: black;
+  background-image: url(../img/brushed_alu_dark.png);
+}
+
+.beaker {
+    border: 10px solid #FFF;
+    border-top: 0;
+    border-radius: 0 0 30px 30px;
+    height: 40%;
+    position: absolute;
+    bottom: 200px;
+    width: 80%;
+    max-width: 230px;
+    margin: 0 10%;
+}
+
+.beer-field {
+    box-sizing: border-box;
+    display: inline-table;
+    position: relative;
+    height: 550px;
+    top: -20px;
+    width: calc(100%/6);
+    min-width: 200px;
+}
+
+.beerDescription {
+    position: absolute;
+    bottom: 0;
+    margin: 0 10%;
+}
+
+.beerSection {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 600px;
+    width: 100%;
+    min-width: 1200px;
+}
+
+.liquid {
+    background-color: #edaf32;
+    border: 10px solid #edaf32;
+    border-radius: 0 0 20px 20px;
+    bottom: 0;
+    height: 0;
+    overflow: visiable;
+    width: calc(100% - 19px);
+    position: absolute;
+}
+
+.liquid > div {
+    position: absolute;
+}
+
+.liquid:after {
+    background-color: rgba(255, 255, 255, 0.25);
+    bottom: -10px;
+    content: '';
+    height: 200px;
+    left: -15px;
+    position: absolute;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(15deg);
+    width: 50px;
+}
+
+.liquid .bubble {
+    -webkit-animation-name: bubble;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    background-color: rgba(255, 255, 255, 1);
+    bottom: 0;
+    border-radius: 10px;
+    height: 15px;
+    width: 15px;
+}
+
+.pour {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 0px;
+    background-color: #edaf32;
+    border-radius: 0 0 10px 10px;
+}
+
+.topHeader {
+    margin: 30px auto;
+    position: fixed;
+    font-size: 3em;
+    font-weight: bold;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+}
+
+@-webkit-keyframes bubble {
+    0% { bottom: 0; }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.2);
+        bottom: 80px;
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+        bottom: 160px;
+    }
+}
+
+.bubble1 {
+    left: 10px;
+    -webkit-animation-delay: 1000ms;
+    -webkit-animation-duration: 1000ms;
+}
+
+.bubble2 {
+    left: 50px;
+    -webkit-animation-delay: 700ms;
+    -webkit-animation-duration: 1100ms;
+}
+
+.bubble3 {
+    left: 100px;
+    -webkit-animation-delay: 1200ms;
+    -webkit-animation-duration: 1300ms;
+}
+
+.bubble4 {
+    left: 130px;
+    -webkit-animation-delay: 1100ms;
+    -webkit-animation-duration: 700ms;
+}
+
+.bubble5 {
+    left: 170px;
+    -webkit-animation-delay: 1300ms;
+    -webkit-animation-duration: 800ms;
+}
+
+/* Foam */
+
+.beer-foam {
+    position: absolute;
+    bottom: 10px;
+    height: 10px;
+    width: 100%;
+  overflow: visible;
+}
+
+.foam-1, .foam-2, .foam-3, .foam-4,
+.foam-5, .foam-6, .foam-7 {
+    position: absolute;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #fefefe;
+}
+.foam-1 {
+    top: -30px;
+    left: -10px;
+}
+.foam-2 {
+    top: -35px;
+    left: 20px;
+}
+.foam-3 {
+    top: -30px;
+    left: 50px;
+}
+.foam-4 {
+    top: -35px;
+    left: 80px;
+}
+.foam-5 {
+    top: -30px;
+    left: 120px;
+}
+.foam-6 {
+    top: -20px;
+    left: 150px;
+}
+
+@media (max-width: 480px) {
+
+}
+
+@media (max-width: 1900px) and (min-width:1200px) {
+
 }
