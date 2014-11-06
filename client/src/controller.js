@@ -30,11 +30,24 @@
   });
   
   
-  controllers.controller("KegDetailsCtrl", ["$scope", "$routeParams", "Keg"], function ($scope, $routeParams, Keg) {
-    Keg.findById({
-      id: $routeParams.kegId 
+  controllers.controller("KegDetailsCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
+    Keg.findOne({
+
+      filter: {
+        include: {
+          relation: "beer",
+          scope: {
+            include: {
+              relation: "brewery"  
+            }
+          }
+        },
+        where: {
+          id: +$routeParams.kegId,
+        }
+      }
     }).$promise.then(function (responce) {
       $scope.keg = responce;
     });
-  });
-})()
+  }]);
+})();

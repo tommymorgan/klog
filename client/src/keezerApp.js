@@ -13,7 +13,7 @@ keezerApp.config([
       }).
       when("/kegs/:kegId", {
         templateUrl: "src/partials/keg-detail.html",
-        controller: "KegDetailCtrl"
+        controller: "KegDetailsCtrl"
       }).
       otherwise({
         redirectTo: '/beers-menu'
