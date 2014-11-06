@@ -1,19 +1,58 @@
+var _ = require('lodash');
+
 module.exports = function(Keg) {
-  Keg.test = function(name, num, callback){
-    callback(null, name+' and '+num);
+	Keg.myEndpoint = function(callback) {
+    var test = Keg.find({
+      include: [
+        'beer',
+      ],
+    }, function(err, kegs) {
+      var temp = [];
+      
+      _.each(kegs, function(keg) {
+        temp.push(JSON.stringify(keg.beer.find));
+      });
+      
+      callback(null, temp);
+    });
   };
-  Keg.remoteMethod('test', {
-    accepts: [{
-      arg: 'name',
-      type: 'string'
-    }, {
-      arg: 'num',
-      type: 'number'
-    }],
-    returns: {
-      arg: 'echo',
-      type: 'string'
+	
+	Keg.remoteMethod('myEndpoint', {
+		http: {
+      path: '/myEndpoint',
+      verb: 'get'
     },
-    http: {path: '/test', verb: 'post'},
-  });
+    returns: {
+      arg: 'foo',
+      type: 'string',
+    },
+	});
+
+	Keg.find = function(filter, cb) {
+		var key = '';
+		
+		if (filter) {
+			key = JSON.stringify(filter);
+		}
+		
+		var cachedResults = cache[key];
+		
+		if (cachedResults) {
+		  process.nextTick(function() {
+				cb(null, cachedResults);
+			});
+		} else {
+			find.call(Keg, function(err, results) {
+				results = results.filter(function(item) {
+					return item.tap === 1;
+				});
+				
+				if (!err) {
+					cache[key] = results;
+				}
+				
+				cb(err, results);
+			});
+		}
+	};
 };
