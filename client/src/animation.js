@@ -16,6 +16,6 @@ setTimeout(function() {
     $('.beer-foam')
         .delay(3400)
         .animate({
-            height: '80%',
+            height: '100%',
         }, 2500);
 }, 2000);
