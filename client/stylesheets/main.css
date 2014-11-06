@@ -11,16 +11,10 @@ body {
     border-radius: 0 0 30px 30px;
     height: 40%;
     position: absolute;
-    bottom: 110px;
+    bottom: 200px;
     width: 80%;
     max-width: 230px;
     margin: 0 10%;
-}
-
-/*  TODO: Remove this class*/
-.beer-field .type1 {
-    background-color:  #a75b36;
-    border-color:  #a75b36;
 }
 
 .beer-field {
@@ -43,7 +37,7 @@ body {
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-    height: 800px;
+    height: 600px;
     width: 100%;
     min-width: 1200px;
 }
@@ -98,7 +92,7 @@ body {
 .topHeader {
     margin: 30px auto;
     position: fixed;
-    font-size: 2em;
+    font-size: 3em;
     font-weight: bold;
     z-index: 999;
     text-align: center;

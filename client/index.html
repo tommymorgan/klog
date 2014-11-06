@@ -15,44 +15,11 @@
     
     
 	</head>
-<body ng-controller="BeerListCtrl">
-<header class="topHeader">Today we have 6 types of beer for you</header>
-    <div class="beerSection">
-        <div class="beer-field" ng-repeat="keg in kegs">
-            <div class="pour srm{{keg.beer.srm}}"></div>
-            <div class="beaker">
-                <div class="beer-foam">
-                    <div class="foam-1"></div>
-                    <div class="foam-2"></div>
-                    <div class="foam-3"></div>
-                    <div class="foam-4"></div>
-                    <div class="foam-5"></div>
-                    <div class="foam-6"></div>
-                    <div class="foam-7"></div>
-                </div>
-                <div class="liquid srm{{keg.beer.srm}}" style="max-height:"{{keg.volume}}>
-                    <div class="foam"></div>
-                    <div class="bubble bubble1"></div>
-                    <div class="bubble bubble2"></div>
-                    <div class="bubble bubble3"></div>
-                    <div class="bubble bubble4"></div>
-                    <div class="bubble bubble5"></div>
-                </div>
-
-            </div>
-            <div class="beerDescription">
-                <div>NAME: {{keg.beer.name}}</div>
-                <!--<div>Brewery: {{keg.beer.description}}</div>-->
-                <!--<div>Type: Pilsner</div>-->  <!-- e.g. style -->
-<!--                 <div>COLOR: {{keg.beer.srm}}</div> -->
-                <div>IBU: {{keg.beer.ubv}}</div>
-                <div>ABV: {{keg.beer.abv}}</div>
-                <div>Tap: {{keg.tap}}</div>
-                <div>Current ML: {{keg.current_ml}}</div>
-                <div>Volume {{keg.volume}}%</div>
-            </div>
-        </div>
-    </div>
+<body>
+  <div ng-view></div>
+  <a href="https://twitter.com/BrazosKeezer" class="twitter-follow-button" data-show-count="false">Follow @BrazosKeezer</a>
 </body>
-  <script src="src/animation.js"></script>  
+  <script src="src/animation.js"></script>
+  
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </html>

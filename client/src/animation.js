@@ -2,7 +2,7 @@ setTimeout(function() {
     $('.pour') //Pour Me Another Drink, Bartender!
         .delay(2000)
         .animate({
-            height: '310px'
+            height: '340px'
         }, 1500)
         .delay(1600)
         .slideUp(500);

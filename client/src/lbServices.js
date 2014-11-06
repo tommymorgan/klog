@@ -1037,9 +1037,9 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Beer.breweries() instead.
-        "prototype$__get__breweries": {
-          url: urlBase + "/Beers/:id/breweries",
+        // INTERNAL. Use Beer.brewery() instead.
+        "prototype$__get__brewery": {
+          url: urlBase + "/Beers/:id/brewery",
           method: "GET",
         },
 
@@ -1614,12 +1614,12 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Beer#breweries
+         * @name lbServices.Beer#brewery
          * @methodOf lbServices.Beer
          *
          * @description
          *
-         * Fetches belongsTo relation breweries
+         * Fetches belongsTo relation brewery
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1642,9 +1642,9 @@ module.factory(
          * This usually means the response is a `Brewery` object.)
          * </em>
          */
-        R.breweries = function() {
+        R.brewery = function() {
           var TargetResource = $injector.get("Brewery");
-          var action = TargetResource["::get::Beer::breweries"];
+          var action = TargetResource["::get::Beer::brewery"];
           return action.apply(R, arguments);
         };
     /**
@@ -2325,9 +2325,9 @@ module.factory(
           method: "PUT",
         },
 
-        // INTERNAL. Use Beer.breweries() instead.
-        "::get::Beer::breweries": {
-          url: urlBase + "/Beers/:id/breweries",
+        // INTERNAL. Use Beer.brewery() instead.
+        "::get::Beer::brewery": {
+          url: urlBase + "/Beers/:id/brewery",
           method: "GET",
         },
       }
