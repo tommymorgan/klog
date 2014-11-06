@@ -1,8 +1,5 @@
 (function(){
   var controllers = angular.module("keezerControllers", ["lbServices", "n3-line-chart"]);
-  function formatData(flows) {
-    return 
-  }
   
   controllers.controller("BeersListCtrl", ["$scope", "Keg", "Brewery", function ($scope, Keg, Brewery) {
     Keg.find({
@@ -58,14 +55,8 @@
   controllers.controller("KegHistoryCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
     Keg.history($routeParams).$promise.then(function (response) {
       $scope.keg = response.data;
-      window.response = response;
-      var remainingMl = response.data.start_ml;
       $scope.beerName = response.data.beer.name;
-//       var data = [{
-//         ml: remainingMl,
-//         poured: 0,
-//         date: new Date(response.data.tapped),
-//       }];
+      var remainingMl = response.data.start_ml;
       var data = [];
       response.data.keg_flows.forEach(function(flow) {
         remainingMl -= flow.ml;
@@ -104,14 +95,13 @@
           mode: 'scrubber',
           interpolate: true,
           formatter: function(x, y, series) {
-            return y + "ml of "+$scope.beerName+" remaining";
+            return y + "ml of "+$scope.beerName;
           },
         },
-        drawLegend: false,
         stacks: [],
         lineMode: "linear",
         tension: 0.7,
-        drawLegend: true,
+        drawLegend: false,
         drawDots: true,
         columnsHGap: 5
       };
