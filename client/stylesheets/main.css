@@ -42,6 +42,15 @@ body {
     min-width: 1200px;
 }
 
+.beer-explenation {
+  position: absolute;
+  bottom: 0;
+}
+
+.beer-abv {
+  width: 15%;  
+}
+
 .liquid {
     background-color: #edaf32;
     border: 10px solid #edaf32;
@@ -193,8 +202,8 @@ body {
 }
 .foam-7 {
     display: none;
-    top: -30px;
-    left: 160px;
+    top: 5px;
+    left: 180px;
 }
 
 @media (max-width: 480px) {
@@ -202,9 +211,11 @@ body {
 }
 @media (max-width:1200px) {
   .foam-6 { 
-    display: none;
+      display: none;
   }
 }
-@media (max-width: 1900px) and (min-width:1200px) {
-
+@media (min-width:1500px) {
+  .foam-7 {
+      display: block;
+  }
 }

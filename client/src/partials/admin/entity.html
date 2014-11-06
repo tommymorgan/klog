@@ -1,0 +1,8 @@
+<a href="/#/admin/{{entity}}/create">Add New</a>
+<ul>
+  <li ng-repeat="entity in entities">
+    <span>{{entity.name}}</span>
+    <a href="/#/admin/{{$parent.entity}}/{{entity.id}}/edit">Edit</a>
+  </li>
+</ul>
+  

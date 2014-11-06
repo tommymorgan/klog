@@ -1,4 +1,5 @@
 (function(){
+  debugger;
   var controllers = angular.module("keezerControllers", ["lbServices"]);
   controllers.controller("BeersListCtrl", ["$scope", "Keg", "Brewery", function ($scope, Keg, Brewery) {
     Keg.find({
@@ -24,15 +25,14 @@
     });
   }]); 
   
-  controllers.controller("BeerDetailsCtrl", ["$scope"], function ($scope) {
+  controllers.controller("BeerDetailsCtrl", ["$scope", function ($scope) {
     //TODO;
     $scope.hello = "here";
-  });
+  }]);
   
   
   controllers.controller("KegDetailsCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
     Keg.findOne({
-
       filter: {
         include: {
           relation: "beer",
@@ -43,11 +43,11 @@
           }
         },
         where: {
-          id: +$routeParams.kegId,
+          id: $routeParams.kegId,
         }
       }
-    }).$promise.then(function (responce) {
-      $scope.keg = responce;
+    }).$promise.then(function (response) {
+      $scope.keg = response;
     });
   }]);
 })();

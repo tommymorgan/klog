@@ -19,5 +19,5 @@ setTimeout(function() {
             height: '100%',
         }, 2500);
   
-  $('.beer-volume').delay(3500).show()
+  $('.beer-volume').delay(3500).show();
 }, 1000);
