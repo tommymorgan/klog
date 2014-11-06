@@ -4,7 +4,26 @@ module.exports = function(app, callback) {
 	var Keg = app.models.Keg;
 	var KegFlow = app.models.KegFlow;
 	var Poller  = require("aws-sqs-poller");
-	var options = {
+	var twitterApi = require("twitter");
+	var twitterConfig = require("../twitter-config");
+	var util = require('util');
+	
+	var twitter = new twitterApi({
+		consumer_key: twitterConfig.consumerKey,
+		consumer_secret: twitterConfig.consumerSecret,
+		access_token_key: twitterConfig.accessTokenKey,
+		access_token_secret: twitterConfig.accessTokenSecret
+	});
+	
+	function sendTweet(message) {
+		twitter.verifyCredentials(function(data) {
+			//console.log(util.inspect(data));
+		}).updateStatus(message, function(data) {
+			//console.log(util.inspect(data));
+		});
+	}
+	
+	var awsOptions = {
 		name: "keezer", // required
 		accessKeyId: awsConfig.credentials.accessKeyId, // required
 		secretAccessKey: awsConfig.credentials.secretAccessKey, // required
@@ -12,7 +31,7 @@ module.exports = function(app, callback) {
 		//maxMessages: 4, // optional, default is 10, must be between 1-10 
 	};
 
-	var myQueue = new Poller(options);
+	var myQueue = new Poller(awsOptions);
 
 	myQueue.start(); // calling this will start the poller
 	myQueue.on("message", function (msg) {
