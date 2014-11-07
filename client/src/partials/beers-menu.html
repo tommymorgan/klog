@@ -10,9 +10,10 @@
         <div class="foam-4"></div>
         <div class="foam-5"></div>
         <div class="foam-6"></div>
+        <div class="foam-7"></div>
       </div>
       <div class="liquid srm{{keg.beer.srm}}" style="max-height:{{keg.volume}}%">
-        <div class="foam"></div>
+        <div class="beer-volume">{{keg.volume}}%</div>
         <div class="bubble bubble1"></div>
         <div class="bubble bubble2"></div>
         <div class="bubble bubble3"></div>
@@ -33,6 +34,7 @@
       <div>Brewery: {{keg.beer.brewery.name}}</div>
       <div>Location: {{keg.beer.brewery.location}}</div>
       <div><a href="/#/kegs/{{keg.id}}">Read More</a></div>
+      <div><a href="/#/kegs/history/{{keg.tap}}">Usage Graph</a></div>
     </div>
     
   </div>
