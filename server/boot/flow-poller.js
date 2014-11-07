@@ -52,6 +52,10 @@ module.exports = function(app, callback) {
 						return;
 					}
 					
+					if (!keg) {
+						return;
+					}
+					
 					var pulses = flowData.data[tap];
 					var ml = Math.round(pulses / 6.1); // 6100 pulses/liter
 
