@@ -16,7 +16,7 @@
     }).$promise.then(function (kegs){
       kegs.forEach(function(keg) {
         keg.beer.srm *= 10;
-        keg.volume = Math.ceil(keg.current_ml * 100  / 18657);
+        keg.volume = Math.ceil(keg.current_ml * 100  / 18927);
       });
       $scope.kegs = kegs.filter(function (keg) {return !keg.floated;});  
     });
