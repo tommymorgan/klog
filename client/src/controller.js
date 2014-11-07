@@ -1,5 +1,4 @@
 (function(){
-  debugger;
   var controllers = angular.module("keezerControllers", ["lbServices"]);
   controllers.controller("BeersListCtrl", ["$scope", "Keg", "Brewery", function ($scope, Keg, Brewery) {
     Keg.find({

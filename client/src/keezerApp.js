@@ -1,4 +1,4 @@
-var keezerApp = angular.module('keezerApp',["ngRoute", "lbServices", "keezerControllers", "adminControllers"]);
+var keezerApp = angular.module('keezerApp',["ngRoute", "lbServices", "keezerControllers", "adminControllers", "ngAnimate"]);
 keezerApp.config([
   '$routeProvider',
   function($routeProvider) {
