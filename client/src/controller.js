@@ -1,5 +1,6 @@
 (function(){
-  var controllers = angular.module("keezerControllers", ["lbServices"]);
+  var controllers = angular.module("keezerControllers", ["lbServices", "n3-line-chart"]);
+  
   controllers.controller("BeersListCtrl", ["$scope", "Keg", "Brewery", function ($scope, Keg, Brewery) {
     Keg.find({
       filter: {
@@ -48,6 +49,62 @@
       }
     }).$promise.then(function (responce) {
       $scope.keg = responce;
+    });
+  }]);
+  
+  controllers.controller("KegHistoryCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
+    Keg.history($routeParams).$promise.then(function (response) {
+      $scope.keg = response.data;
+      $scope.beerName = response.data.beer.name;
+      var remainingMl = response.data.start_ml;
+      var data = [];
+      response.data.keg_flows.forEach(function(flow) {
+        remainingMl -= flow.ml;
+        
+        data.push({
+          ml: remainingMl,
+          poured: flow.ml,
+          date: new Date(flow.timestamp),
+        });
+      });
+      $scope.data = data;
+      $scope.currentVolume = remainingMl;
+      $scope.options = {
+        axes: {
+          x: {
+            type: "date",
+            key: "date"
+          },
+          y: {
+            type: "area",
+            min: 0,
+          },
+        },
+        series: [
+          {
+            y: "ml",
+            label: $scope.beerName,
+            color: "black",
+            axis: "y",
+            type: "line",
+            thickness: "2px",
+            id: "series_0"
+          },
+        ],
+        tooltip: {
+          mode: 'scrubber',
+          interpolate: true,
+          formatter: function(x, y, series) {
+            return y + "ml of "+$scope.beerName;
+          },
+        },
+        stacks: [],
+        lineMode: "linear",
+        tension: 0.7,
+        drawLegend: false,
+        drawDots: true,
+        columnsHGap: 5
+      };
     });
   }]);
 })();

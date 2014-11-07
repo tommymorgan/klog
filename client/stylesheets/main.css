@@ -194,3 +194,15 @@ body {
 @media (max-width: 1900px) and (min-width:1200px) {
 
 }
+
+.chart-container {
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 300px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.keg-history {
+  margin: 50px;
+}
