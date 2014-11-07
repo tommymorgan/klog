@@ -10,6 +10,10 @@
       "type": "number",
       "required": true
     },
+	  "cost": {
+		  "type": "number",
+		  "required": true
+	  },
     "tapped": {
       "type": "date",
       "required": true
@@ -28,7 +32,11 @@
     "tap": {
       "type": "number",
       "required": true
-    }
+    },
+	  "warning_tweet_sent": {
+		  "type": "boolean",
+		  "required": true
+	  }
   },
   "validations": [],
   "relations": {
