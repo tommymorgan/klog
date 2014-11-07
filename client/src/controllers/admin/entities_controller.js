@@ -1,5 +1,5 @@
 (function () {
-  var appControllers = angular.module("keezerControllers", ["lbServices"]);
+  var appControllers = angular.module("adminControllers", ["lbServices"]);
   appControllers.controller("AdminEntitiesListCtrl", 
      ["$scope", "$routeParams", "Beer", "Brewery", "Keg", 
      function ($scope, $routeParams, Beer, Brewery, Keg) {
