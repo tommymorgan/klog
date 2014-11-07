@@ -49,6 +49,7 @@ module.exports = function(app, callback) {
 				}, function(err, keg) {
 					if (err) {
 						console.error(err);
+						return;
 					}
 					
 					var pulses = flowData.data[tap];
@@ -69,9 +70,10 @@ module.exports = function(app, callback) {
 					KegFlow.create(kegData, function(err, obj) {
 						if (err) {
 							console.error(err);
+							return;
 						}
 
-						//console.log("klog: " + JSON.stringify(obj));
+						console.log("klog: " + JSON.stringify(obj));
 
 						// sum all kegflows and send warning tweet if appropriate
 						KegFlow.find({
