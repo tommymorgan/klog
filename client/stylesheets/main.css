@@ -220,3 +220,15 @@ body {
       display: block;
   }
 }
+
+.chart-container {
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 300px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.keg-history {
+  margin: 50px;
+}

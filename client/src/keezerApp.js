@@ -23,6 +23,10 @@ keezerApp.config([
         templateUrl: "src/partials/keg-detail.html",
         controller: "KegDetailsCtrl"
       }).
+      when("/kegs/history/:tap", {
+        templateUrl: "src/partials/keg-history.html",
+        controller: "KegHistoryCtrl",
+      }).
       otherwise({
         redirectTo: '/beers-menu'
       });

@@ -1,19 +1,36 @@
+var _ = require('lodash');
+var app = require('../../server/server');
+
 module.exports = function(Keg) {
-  Keg.test = function(name, num, callback){
-    callback(null, name+' and '+num);
-  };
-  Keg.remoteMethod('test', {
-    accepts: [{
-      arg: 'name',
-      type: 'string'
-    }, {
-      arg: 'num',
-      type: 'number'
-    }],
-    returns: {
-      arg: 'echo',
-      type: 'string'
-    },
-    http: {path: '/test', verb: 'post'},
-  });
+	Keg.history = function(tap, callback) {
+		if(!_.isNumber(+tap)) {
+			callback(null, {});
+		}
+
+		Keg.findOne({
+			where: {
+				floated: null,
+				tap: tap
+			},
+			include: [
+				'beer',
+				'keg_flows',
+			],
+		}, callback);
+	};
+	
+	Keg.remoteMethod('history', {
+		http: {
+			path: '/history',
+			verb: 'get'
+		},
+	    accepts: {
+			arg: 'tap',
+			type: 'number',
+		},
+		returns: {
+			arg: 'data',
+			type: 'object',
+		},
+	});
 };
