@@ -47,7 +47,8 @@ body {
   bottom: 0;
 }
 
-.beer-abv {
+.beer-abv,
+.beer-ibu {
   width: 15%;  
 }
 
