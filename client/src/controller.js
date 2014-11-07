@@ -11,7 +11,8 @@
               relation: "brewery"  
             }
           }
-        }
+        },
+        order: 'tap ASC' 
       }
     }).$promise.then(function (kegs){
       kegs.forEach(function(keg) {
@@ -20,8 +21,7 @@
       });
       $scope.kegs = kegs.filter(function (keg) {return !keg.floated;});  
     });
-  }]); 
-  
+  }]);
   controllers.controller("BeerDetailsCtrl", ["$scope", function ($scope) {
     //TODO;
     $scope.hello = "here";
