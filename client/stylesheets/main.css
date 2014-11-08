@@ -11,7 +11,7 @@ body {
     border-radius: 0 0 30px 30px;
     height: 40%;
     position: absolute;
-    bottom: 200px;
+    bottom: 250px;
     width: 80%;
     max-width: 230px;
     margin: 0 10%;
@@ -21,15 +21,22 @@ body {
     box-sizing: border-box;
     display: inline-table;
     position: relative;
-    height: 550px;
+    height: 600px;
     top: -20px;
     width: calc(100%/6);
     min-width: 200px;
 }
 
+.beer-name {
+    color: white;
+    font-size: 2em;
+    margin: 0 -10%;
+    text-align: center;
+}
+
 .beerDescription {
     position: absolute;
-    bottom: 0;
+    top: 400px;
     margin: 0 10%;
 }
 
