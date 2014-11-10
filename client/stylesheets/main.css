@@ -11,7 +11,7 @@ body {
     border-radius: 0 0 30px 30px;
     height: 40%;
     position: absolute;
-    bottom: 200px;
+    bottom: 250px;
     width: 80%;
     max-width: 230px;
     margin: 0 10%;
@@ -21,15 +21,22 @@ body {
     box-sizing: border-box;
     display: inline-table;
     position: relative;
-    height: 550px;
+    height: 600px;
     top: -20px;
     width: calc(100%/6);
     min-width: 200px;
 }
 
+.beer-name {
+    color: white;
+    font-size: 2em;
+    margin: 0 -10%;
+    text-align: center;
+}
+
 .beerDescription {
     position: absolute;
-    bottom: 0;
+    top: 400px;
     margin: 0 10%;
 }
 
@@ -40,6 +47,16 @@ body {
     height: 600px;
     width: 100%;
     min-width: 1200px;
+}
+
+.beer-explenation {
+  position: absolute;
+  bottom: 0;
+}
+
+.beer-abv,
+.beer-ibu {
+  width: 15%;  
 }
 
 .liquid {
@@ -61,18 +78,22 @@ body {
     background-color: rgba(255, 255, 255, 0.25);
     bottom: -10px;
     content: '';
-    height: 200px;
-    left: -15px;
+    height: 230px;
+    left: -30px;
     position: absolute;
     transform: rotate(30deg);
     -webkit-transform: rotate(15deg);
-    width: 50px;
+    -moz-transform: rotate(15deg);
+    width: 90px;
 }
 
 .liquid .bubble {
     -webkit-animation-name: bubble;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
+    -moz-animation-name: bubble;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
     background-color: rgba(255, 255, 255, 1);
     bottom: 0;
     border-radius: 10px;
@@ -113,34 +134,59 @@ body {
     }
 }
 
+ @-moz-keyframes bubble {
+     0% { bottom: 0; }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.2);
+        bottom: 80px;
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+        bottom: 160px;
+    }
+ }
 .bubble1 {
     left: 10px;
     -webkit-animation-delay: 1000ms;
     -webkit-animation-duration: 1000ms;
+    -moz-animation-delay: 1000ms;
+    -moz-animation-duration: 1000ms;
 }
 
 .bubble2 {
     left: 50px;
     -webkit-animation-delay: 700ms;
     -webkit-animation-duration: 1100ms;
+    -moz-animation-delay: 700ms;
+    -moz-animation-duration: 1100ms;
 }
 
 .bubble3 {
     left: 100px;
     -webkit-animation-delay: 1200ms;
     -webkit-animation-duration: 1300ms;
+    -moz-animation-delay: 1200ms;
+    -moz-animation-duration: 1300ms;
 }
 
 .bubble4 {
     left: 130px;
     -webkit-animation-delay: 1100ms;
     -webkit-animation-duration: 700ms;
+    -moz-animation-delay: 1100ms;
+    -moz-animation-duration: 700ms;
+
 }
 
 .bubble5 {
     left: 170px;
     -webkit-animation-delay: 1300ms;
     -webkit-animation-duration: 800ms;
+    -moz-animation-delay: 1300ms;
+    -moz-animation-duration: 800ms;
+
 }
 
 /* Foam */
@@ -193,8 +239,8 @@ body {
 }
 .foam-7 {
     display: none;
-    top: -30px;
-    left: 160px;
+    top: 5px;
+    left: 180px;
 }
 
 @media (max-width: 480px) {
@@ -202,11 +248,13 @@ body {
 }
 @media (max-width:1200px) {
   .foam-6 { 
-    display: none;
+      display: none;
   }
 }
-@media (max-width: 1900px) and (min-width:1200px) {
-
+@media (min-width:1500px) {
+  .foam-7 {
+      display: block;
+  }
 }
 
 .chart-container {

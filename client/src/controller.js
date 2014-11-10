@@ -11,29 +11,25 @@
               relation: "brewery"  
             }
           }
-        }
-      },
-      where: {
-        floated: null
+        },
+        order: 'tap ASC' 
       }
     }).$promise.then(function (kegs){
       kegs.forEach(function(keg) {
         keg.beer.srm *= 10;
-        keg.volume = Math.ceil(keg.current_ml * 100  / 58673);
+        keg.volume = Math.ceil(keg.current_ml * 100  / 18927);
       });
-      $scope.kegs = kegs;  
+      $scope.kegs = kegs.filter(function (keg) {return !keg.floated;});  
     });
-  }]); 
-  
-  controllers.controller("BeerDetailsCtrl", ["$scope"], function ($scope) {
+  }]);
+  controllers.controller("BeerDetailsCtrl", ["$scope", function ($scope) {
     //TODO;
     $scope.hello = "here";
-  });
+  }]);
   
   
   controllers.controller("KegDetailsCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
     Keg.findOne({
-
       filter: {
         include: {
           relation: "beer",
@@ -44,11 +40,11 @@
           }
         },
         where: {
-          id: +$routeParams.kegId,
+          id: $routeParams.kegId,
         }
       }
-    }).$promise.then(function (responce) {
-      $scope.keg = responce;
+    }).$promise.then(function (response) {
+      $scope.keg = response;
     });
   }]);
   

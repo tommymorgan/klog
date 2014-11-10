@@ -1,4 +1,3 @@
-
 <div class="beerSection">
   <div class="beer-field" ng-repeat="keg in kegs">
     <div class="pour srm{{keg.beer.srm}}"></div>
@@ -22,7 +21,7 @@
       </div>
     </div>
     <div class="beerDescription">
-      <div>Name: {{keg.beer.name}}</div>
+      <div class="beer-name">{{keg.beer.name}}</div>
       <!--<div>Brewery: {{keg.beer.description}}</div>-->
       <!--<div>Type: Pilsner</div>-->  <!-- e.g. style -->
       <!--                 <div>COLOR: {{keg.beer.srm}}</div> -->
@@ -40,5 +39,10 @@
   </div>
 </div>
 <header class="topHeader">
-  Today we have 6 types of beer for you
+  Today we have {{kegs.length}} types of beer for you
 </header>
+<div class="beer-explenation">
+    <a href="http://en.wikipedia.org/wiki/Alcohol_by_volume"><img src="../img/cap.png" class="beer-abv" /></a>
+    <a href="http://en.wikipedia.org/wiki/Beer_measurement#Bitterness"><img src="../img/cap-ibu.png" class="beer-ibu" /></a>
+
+</div>
