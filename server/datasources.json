@@ -4,7 +4,7 @@
     "connector": "memory"
   },
   "beer-db": {
-    "url": "postgres://kyudhrksuqawtd:WtEet5cdmQWAxgXgRV1yHEDuGV@ec2-54-243-49-204.compute-1.amazonaws.com:5432/dcn733v3sneaap",
+    "url": "postgres://kyudhrksuqawtd:WtEet5cdmQWAxgXgRV1yHEDuGV@ec2-54-243-49-204.compute-1.amazonaws.com:5432/dcn733v3sneaap?ssl=1",
     "name": "beer-db",
     "connector": "postgresql"
   }
