@@ -1,6 +1,25 @@
 (function(){
+  "use strict"
   var controllers = angular.module("keezerControllers", ["lbServices", "n3-line-chart"]);
   
+  var addFakeKegs = function (kegs) {
+    var existedKeg, kegsList=[];
+
+    for (var kegNumber = 1;  kegNumber <= 6; kegNumber++) {
+      existedKeg = kegs.filter(function (keg){ return +keg.tap === kegNumber; })[0];
+      if(!existedKeg) {
+        existedKeg = {
+          tap: kegNumber,
+          volume: 0,
+          fakeKeg: true
+        }
+      }
+      kegsList.push(existedKeg);
+    }
+
+    return kegsList;
+  };
+
   controllers.controller("BeersListCtrl", ["$scope", "Keg", "Brewery", function ($scope, Keg, Brewery) {
     Keg.find({
       filter: {
@@ -8,26 +27,26 @@
           relation: "beer",
           scope: {
             include: {
-              relation: "brewery"  
+              relation: "brewery"
             }
           }
         },
-        order: 'tap ASC' 
+        order: 'tap ASC'
       }
     }).$promise.then(function (kegs){
       kegs.forEach(function(keg) {
         keg.beer.srm *= 10;
         keg.volume = Math.ceil(keg.current_ml * 100  / 18927);
       });
-      $scope.kegs = kegs.filter(function (keg) {return !keg.floated;});  
+      $scope.kegs = addFakeKegs(kegs.filter(function (keg) {return !keg.floated;}));
     });
   }]);
   controllers.controller("BeerDetailsCtrl", ["$scope", function ($scope) {
     //TODO;
     $scope.hello = "here";
   }]);
-  
-  
+
+
   controllers.controller("KegDetailsCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
     Keg.findOne({
       filter: {
@@ -35,7 +54,7 @@
           relation: "beer",
           scope: {
             include: {
-              relation: "brewery"  
+              relation: "brewery"
             }
           }
         },
@@ -47,7 +66,7 @@
       $scope.keg = response;
     });
   }]);
-  
+
   controllers.controller("KegHistoryCtrl", ["$scope", "$routeParams", "Keg", function ($scope, $routeParams, Keg) {
     Keg.history($routeParams).$promise.then(function (response) {
       $scope.keg = response.data;
@@ -56,7 +75,7 @@
       var data = [];
       response.data.keg_flows.forEach(function(flow) {
         remainingMl -= flow.ml;
-        
+
         data.push({
           ml: remainingMl,
           poured: flow.ml,
