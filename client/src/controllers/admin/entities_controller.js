@@ -3,7 +3,7 @@
   appControllers.controller("AdminEntitiesListCtrl", 
      ["$scope", "$routeParams", "Beer", "Brewery", "Keg", 
      function ($scope, $routeParams, Beer, Brewery, Keg) {
-        var entitiesMap = {
+       var entitiesMap = {
           beer: {
             model: Beer,
             relation: "brewery"
@@ -16,11 +16,20 @@
             model: Keg,
             relation: "beer",
           }
-        }
+      };
         var entity = $routeParams.entity;
         $scope.entity = entity;
         entitiesMap[entity].model.find().$promise.then(function (response){
           $scope.entities = response;
         });
   }]);
+  appControllers.controller("AdminEntityCreateCtrl", 
+     ["$scope", "$routeParams", "Beer", "Brewery", "Keg", function ($scope, $routeParams, Beer, Brewery, Keg) {
+      $scope.model = {};
+       
+      Brewery.find().$promise.then(function (response) {
+        $scope.breweries = response;
+      });
+     }]);
+   
 })();
