@@ -1,8 +1,15 @@
-<a href="/#/admin/{{entity}}/create">Add New</a>
-<ul>
-  <li ng-repeat="entity in entities">
-    <span>{{entity.name}}</span>
-    <a href="/#/admin/{{$parent.entity}}/{{entity.id}}/edit">Edit</a>
-  </li>
-</ul>
-  
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">{{entity}}</h1>
+  <a class="btn btn-outline btn-primary btn-sm" href="#/admin/{{entity}}/create">Add New</a>
+  <div class="row">
+    <div class="col-lg-6">
+      <ul>
+        <li ng-repeat="entity in entities">
+          <span>{{entity.name}}</span>
+          <a class="btn btn-outline btn-link" href="#/admin/{{$parent.entity}}/{{entity.id}}/edit">Edit</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+</div>

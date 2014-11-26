@@ -1,4 +1,4 @@
-var keezerApp = angular.module('keezerApp',["ngRoute", "lbServices", "keezerControllers", "adminControllers", "ngAnimate"]);
+var keezerApp = angular.module('keezerApp',["ngRoute", "lbServices", "keezerControllers", "ngAnimate"]);
 keezerApp.config([
   '$routeProvider',
   function($routeProvider) {
@@ -10,14 +10,6 @@ keezerApp.config([
       when('/beers/:beerId', {
         templateUrl: 'src/partials/beer-detail.html',
         controller: 'BeerDetailCtrl'
-      }).
-      when("/admin/:entity/:id/edit", {
-        templateUrl: "src/partials/beer-edit.html",
-        controller: "AdminBeerCreateCtrl"
-      }).
-      when("/admin/:entity", {
-        templateUrl: "src/partials/admin/entity.html",
-        controller: "AdminEntitiesListCtrl"
       }).
       when("/kegs/:kegId", {
         templateUrl: "src/partials/keg-detail.html",
